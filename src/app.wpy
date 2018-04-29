@@ -86,11 +86,9 @@ export default class extends wepy.app {
       // 登录了但是缓存中没有，请求接口获取
       if (!user) {
         let userResponse = await api.authRequest('user')
-        console.log(userResponse)
         // 状态码为 200 表示请求成功
         if (userResponse.statusCode === 200) {
           user = userResponse.data
-          console.log(user)
           wepy.setStorageSync('user', user)
         }
       }
