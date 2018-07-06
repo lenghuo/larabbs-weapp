@@ -8,7 +8,7 @@ const host = 'http://larabbs.test/api'
 const request = async (options, showLoading = true) => {
   // 显示加载中
   if (showLoading) {
-    wepy.showLoading({title:'加载中'})
+    wepy.showLoading({title: '加载中'})
   }
   // 链接请求地址
   options.url = host + '/' + options.url
