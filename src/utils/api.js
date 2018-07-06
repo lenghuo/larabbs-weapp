@@ -28,7 +28,7 @@ const request = async (options, showLoading = true) => {
 }
 
 // 登录
-const login  = async (params = {}) => {
+const login = async (params = {}) => {
   // code只能使用一次，所以每次得单独调用
   let loginData = await wepy.login()
   // 参数中增加code

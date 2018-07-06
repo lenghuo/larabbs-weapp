@@ -17,6 +17,7 @@
   "author": "weixupeng999@163.com",
   "license": "MIT",
   "dependencies": {
+    "moment": "^2.22.2",
     "promise-polyfill": "^7.1.2",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
