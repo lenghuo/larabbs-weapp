@@ -1,0 +1,26 @@
+<style lang="less">
+page {
+  background-color: #ffffff;
+}
+.avatar-wrap {
+  position: relative;
+  margin-right: 10px;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+</style>
+<template>
+
+</template>
+<script>
+import wepy from 'wepy'
+export default class TopicsShow extends wepy.page {
+  config = {}
+  data = {}
+  onLoad(options) {
+    console.log(options.id)
+  }
+}
+</script>
