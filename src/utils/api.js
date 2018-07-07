@@ -24,6 +24,12 @@ const request = async (options, showLoading = true) => {
       content: '服务器错误，请联系管理员或者重试'
     })
   }
+  if (response.statusCode === 429) {
+    wepy.showModal({
+      title: '提示',
+      content: '亲，刷新太快了，慢点儿来！'
+    })
+  }
   return response
 }
 
