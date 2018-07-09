@@ -123,7 +123,6 @@ export default class TopicsShow extends wepy.page {
       }
       // 设置全局变量，控制列表刷新
       let pages = this.getCurrentPages()
-      console.log(pages)
       // 如果有返回上一页
       if (pages.length > 1) {
         // 获取所有已打开的页面，如果是话题列表页面就记录下来
@@ -150,7 +149,6 @@ export default class TopicsShow extends wepy.page {
           include: 'user,category,topReplies.user'
         }
       })
-      console.log(topicResponse)
       if (topicResponse.statusCode === 200) {
         let topic = topicResponse.data
         topic.update_at_diff = util.diffForHumans(topic.update_at)
