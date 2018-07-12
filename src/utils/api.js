@@ -37,6 +37,7 @@ const request = async (options, showLoading = true) => {
 const login = async (params = {}) => {
   // code只能使用一次，所以每次得单独调用
   let loginData = await wepy.login()
+  console.log(loginData)
   // 参数中增加code
   params.code = loginData.code
   // 接口请求 weapp/authorizations

@@ -104,7 +104,7 @@ export default class TopicsShow extends wepy.page {
       if (!this.topic || !this.user) {
         return false
       }
-      return this.user.id === this.topic.user_id
+      return (this.user.id === this.topic.user_id) || this.$parent.can('manage_contents')
     }
   }
   methods = {
@@ -190,6 +190,20 @@ export default class TopicsShow extends wepy.page {
     this.$parent.checkRefreshPages(this.getCurrentPages().pop().route, () => {
       this.getTopic(this.topic.id)
     })
+  }
+  onShareAppMessage(res) {
+    return {
+      // 标题是话题标题
+      title: this.topic.title,
+      // 路劲为话题详情路径
+      path: '/pages/topics/show?id=' + this.topic.id,
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    }
   }
 }
 </script>
