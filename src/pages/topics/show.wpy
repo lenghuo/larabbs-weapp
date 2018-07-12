@@ -15,6 +15,13 @@ page {
 .topic-title {
   padding: 15px;
 }
+.create-reply {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
 </style>
 <template>
   <view class="page">
@@ -69,6 +76,9 @@ page {
           </navigator>
         </view>
       </view>
+      <navigator url="/pages/replies/create?topic_id={{ topic.id }}">
+        <image src="/images/reply.png" class="create-reply" />
+      </navigator>
     </view>
   </view>
 </template>
@@ -175,6 +185,11 @@ export default class TopicsShow extends wepy.page {
     this.getTopic(options.id)
     this.user = await this.$parent.getCurrentUser()
     this.$apply()
+  }
+  async onShow() {
+    this.$parent.checkRefreshPages(this.getCurrentPages().pop().route, () => {
+      this.getTopic(this.topic.id)
+    })
   }
 }
 </script>
